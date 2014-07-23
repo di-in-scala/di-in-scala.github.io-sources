@@ -9,7 +9,6 @@ For example, to test our shunting module, we could mock the point switcher, whic
 
 ````scala
 // main code
-
 package shunting {
    trait ShuntingModule {
       lazy val pointSwitcher = wire[PointSwitcher]
