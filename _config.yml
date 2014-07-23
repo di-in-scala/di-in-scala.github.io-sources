@@ -18,7 +18,7 @@ author:
 sections:
   introduction:   'Introduction'
   manual:         'Manual Dependency Injection'
-  macwire:		  'Using MacWire for wiring'
+  macwire:		    'Using MacWire for wiring'
   simplescopes:	  'Simple scoping'
   modules:        'Modularising object graph creation'
   multiple:       'Multiple implementations'

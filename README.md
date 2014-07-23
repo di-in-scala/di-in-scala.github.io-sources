@@ -1,3 +1,7 @@
 # DI in Scala: guide
 
-These are the sources for the 'Dependency Injection in Scala using MacWire' guide. You can [view it online](http://scaladi.github.io), or fork this repository and contribute!
+The sources for this guide are available in the [scaladi.github.io-sources](https://github.com/scaladi/scaladi.github.io-sources) repository. Feel free to fork and contribute!
+
+You can also [view the 'Dependency Injection in Scala using MacWire' guide online](http://scaladi.github.io).
+
+The guide is built with [Jekyll 2.1.1](http://jekyllrb.com).
