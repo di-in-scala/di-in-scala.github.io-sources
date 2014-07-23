@@ -5,7 +5,6 @@ Firstly, we can have a single module, which contains conditional logic choosing 
 
 ````scala
 package shunting {
-
    trait TrainShunter
  
    class PointSwitcher()
@@ -36,7 +35,6 @@ Secondly, a module can have multiple implementations. In such a case, we can cre
 
 ````scala
 package shunting {
-
    trait TrainShunter
  
    class PointSwitcher()

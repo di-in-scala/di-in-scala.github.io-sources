@@ -6,7 +6,7 @@ This guide describes how to do Dependency Injection using the Scala language con
 Dependency Injection is a *simple* concept, and it can be implemented using relatively few *simple* constructs. We should avoid over-complicating and over-using containers or frameworks, without thoroughly analysing the costs.
 
 <p class="message">
-  This guide is <a href="https://github.com/scaladi/scaladi.github.io">available on GitHub</a>, so if you think something is missing, not clear enough, or can be done better, don't hesitate and send a pull request!
+  This guide is <a href="https://github.com/scaladi/scaladi.github.io-sources">available on GitHub</a>, so if you think something is missing, not clear enough, or can be done better, don't hesitate and send a pull request!
 </p>
 
 ## What is Dependency Injection?
@@ -25,7 +25,7 @@ Using frameworks:
 
 * [Subcut](https://github.com/dickwall/subcut): mix of the service locator/dependency injection patterns
 * [Scaldi](http://scaldi.org/): similar to Subcut
-* [Spring](http://spring.io/): Spring is a very popular Java DI framework (and much more). It also works for Scala.
+* [Spring](http://spring.io/): Spring is a very popular Java DI framework (and much more). It also works with Scala.
 * [Guice](https://github.com/google/guice): another popular Java DI framework
 
 Using pure Scala:

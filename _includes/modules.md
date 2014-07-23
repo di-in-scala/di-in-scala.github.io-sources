@@ -105,7 +105,6 @@ For example, we could express the dependency between the shunting and loading mo
 
 ````scala
 package shunting {
-
    trait ShuntingModule {
 
       lazy val pointSwitcher = wire[PointSwitcher]
