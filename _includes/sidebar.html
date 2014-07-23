@@ -1,0 +1,23 @@
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>{{ site.title }}</h1>
+      <p class="lead">{{ site.description }}</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item{% if page.title == "Home" %} active{% endif %}">
+        <a href="/">Home</a>
+      </li>
+
+      <li class="sidebar-nav-item"><a href="https://github.com/adamw/macwire">MacWire on GitHub</a></li>
+      <li class="sidebar-nav-item"><a href="http://www.warski.org">Adam Warski's blog</a></li>
+      <li class="sidebar-nav-item">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Dependency injection in Scala: guide" data-via="adamwarski">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </li>
+    </ul>
+
+    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+  </div>
+</div>

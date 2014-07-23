@@ -1,0 +1,28 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            'DI in Scala: guide'
+description:      'Dependency Injection in Scala using MacWire'
+url:              http://scaladi.github.io
+
+author:
+  name:           'Adam Warski'
+  url:            https://twitter.com/adamwarski
+
+# Custom
+sections:
+  introduction:   'Introduction'
+  manual:         'Manual Dependency Injection'
+  macwire:		  'Using MacWire for wiring'
+  simplescopes:	  'Simple scoping'
+  modules:        'Modularising object graph creation'
+  multiple:       'Multiple implementations'
+  testing:        'Testing'
+  interceptors:   'Interceptors'
+  advscopes:      'Advanced scoping'
+  dynamic:        'Accessing the object graph dynamically'
