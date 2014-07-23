@@ -1,9 +1,9 @@
 
 An approach that is often dismissed too easily is doing dependency injection by hand. While this requires a bit more typing, when doing things manually you are free from any constraints that a framework may impose, and hence a lot of flexibility is gained.
 
-When using DI, we have to somehow create (wire) the object graph, that is to create instances of the given classes with the appropriate dependencies. When using framework, this task is delegated to a container. But nothing keeps us from simple writing the code!
+When using DI, we have to somehow create (wire) the object graph, that is create instances of the given classes with the appropriate dependencies. When using a framework, this task is delegated to a container. But nothing keeps us from simply writing the code!
 
-The object graph should be created as late as possible. The "end of the world” is the main class of our application. If you have used DI containers before, when using manual DI with or without MacWire, you will soon re-discover the benefits of having a main method in your application.
+The object graph should be created as late as possible. This may be, for example, the "end of the world", that is the main class of our application. If you have used DI containers before, when using manual DI with or without MacWire, you will soon re-discover the benefits of having a main method in your application.
 
 To be more specific, here’s a manual-DI version for our example:
 
@@ -31,7 +31,7 @@ object TrainStation extends App {
 
 The first advantage of the approach presented above is type-safety: the dependency resolution is done at compile-time, so you can be sure that all dependencies are met.
 
-No run-time reflection is needed, which has a slight startup-time benefit (no need to scan the classpath), but also removes a lot of "magic” from the code. We are only using plain Scala, and constructor parameters. It is possible to navigate to the place where the instance is created. The process of creating the object graph is clear. The application is also simple to use, and can be easily packaged e.g. as a fat-jar. No containers to start, no frameworks to fight.
+No run-time reflection is needed, which has a slight startup-time benefit (no need to scan the classpath), but also removes a lot of "magic" from the code. We are only using plain Scala, and constructor parameters. It is possible to navigate to the place where the instance is created. The process of creating the object graph is clear. The application is also simple to use, and can be easily packaged e.g. as a fat-jar. No containers to start, no frameworks to fight against.
 
 If creating an instance of some object is complex, or choosing an implementation depends on some configuration, thanks to the flexibility of manual DI, we can easily run arbitrary code which should compute the dependency to use.
 

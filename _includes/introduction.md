@@ -11,7 +11,7 @@ Dependency Injection is a *simple* concept, and it can be implemented using rela
 
 ## What is Dependency Injection?
 
-DI is all about decoupling client and service code (the client may happen to be an implementation of another service). Instead of creating hard links to specific service implementations, *references* to services are "injected”. This makes the code easier to understand, more testable and more reusable.
+DI is all about decoupling client and service code (the client may happen to be an implementation of another service). Instead of creating hard links to specific service implementations, *references* to services are "injected". This makes the code easier to understand, more testable and more reusable.
 
 The means of injecting the dependencies vary from approach to approach, but the one we will be using here is passing dependencies through constructor parameters. Other possibilities include setter/field injection, or using a service locator. Hence, the essence of DI can be summarised as *using constructor parameters*.
 

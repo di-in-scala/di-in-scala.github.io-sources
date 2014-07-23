@@ -1,5 +1,4 @@
 <a name="top"></a>
-
 # Table of contents
 
 {% for section in site.sections %}* <a href="#{{ section[0] }}">{{ section[1] }}</a>
@@ -9,9 +8,7 @@
   <a name="{{ section[0] }}"></a>
 
   <h1>{{ section[1] }}</h1>
-
-  [Back to top](#top) 
-  
+  <span style="font-size: 75%">[&#8607; Back to top](#top)</span> 
   {% assign path = '' %}
   {% capture path %}{{ section[0] }}.md{% endcapture %}
   {% include {{ path }} %}  

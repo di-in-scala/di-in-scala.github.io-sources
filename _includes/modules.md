@@ -1,9 +1,9 @@
 
 ## Thin cake pattern
 
-At some point, creating the whole object graph at "the end of the world” will become unpractical, and the code large and hard to read. We should then somehow divide it to smaller pieces. Luckily, Scala’s `trait`s fit perfectly for that task; they can be used to split the object graph creation code.
+At some point, creating the whole object graph at "the end of the world" will become unpractical, and the code large and hard to read. We should then somehow divide it to smaller pieces. Luckily, Scala’s `trait`s fit perfectly for that task; they can be used to split the object graph creation code.
 
-In each trait, which for purpose of this task is also called a "module”, part of the object graph is created. Everything is later re-combined by putting all the necessary traits together.
+In each trait, which for purpose of this task is also called a "module", part of the object graph is created. Everything is later re-combined by putting all the necessary traits together.
 
 There may be various rules on how to divide code into modules. A good place to start is to consider creating a pre-wired module per-package. Each package should contain a group of classes sharing or implementing some specific functionality. Most probably these classes cooperate in some way, and hence can be wired.
 
@@ -106,7 +106,6 @@ For example, we could express the dependency between the shunting and loading mo
 ````scala
 package shunting {
    trait ShuntingModule {
-
       lazy val pointSwitcher = wire[PointSwitcher]
       lazy val trainCarCoupler = wire[TrainCarCoupler]
       lazy val trainShunter = wire[TrainShunter] 
@@ -115,7 +114,6 @@ package shunting {
 
 package loading {
    trait LoadingModule {
-
       lazy val craneController = wire[CraneController]
       lazy val trainLoader = wire[TrainLoader] 
  
@@ -130,7 +128,6 @@ package station {
       lazy val trainDispatch = wire[TrainDispatch]
 
       lazy val trainStation = wire[TrainStation]
-
    }
 }
 
