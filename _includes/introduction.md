@@ -1,5 +1,5 @@
 
-[Dependency Injection (DI)](http://en.wikipedia.org/wiki/Dependency_injection) is a popular pattern implementing inversion of control, which encourages loose coupling between a services’ clients and service implementations.
+[Dependency Injection (DI)](http://en.wikipedia.org/wiki/Dependency_injection) is a popular pattern which encourages loose coupling between a services’ clients and service implementations.
 
 This guide describes how to do Dependency Injection using the Scala language constructs as much as possible, while remaining practical, with the help of the [MacWire](https://github.com/adamw/macwire) library where necessary. 
 
@@ -11,9 +11,11 @@ Dependency Injection is a *simple* concept, and it can be implemented using rela
 
 ## What is Dependency Injection?
 
-DI is all about decoupling client and service code (the client may happen to be an implementation of another service). Instead of creating hard links to specific service implementations, *references* to services are "injected". This makes the code easier to understand, more testable and more reusable.
+DI is all about decoupling client and service code (the client may happen to be another service). Services need to expose information on what dependencies they need. Instead of creating dependent service implementations inside the service itself, *references* to dependent services are "injected". This makes the code easier to understand, more testable and more reusable.
 
 The means of injecting the dependencies vary from approach to approach, but the one we will be using here is passing dependencies through constructor parameters. Other possibilities include setter/field injection, or using a service locator. Hence, the essence of DI can be summarised as *using constructor parameters*.
+
+A very important aspect of DI is Inversion of Control. The service implementations have to be created "outside" the services, e.g. by a container or some external wiring code. Using `new` directly to create a dependency is not allowed inside the services.
 
 If you are not yet sold on DI, I recommend reading the [motivation behind Guice](https://github.com/google/guice/wiki/Motivation). It uses Java as the base language, but the ideas are the same and apply universally.
 

@@ -31,7 +31,7 @@ object TrainStation extends App {
 
 The first advantage of the approach presented above is type-safety: the dependency resolution is done at compile-time, so you can be sure that all dependencies are met.
 
-No run-time reflection is needed, which has a slight startup-time benefit (no need to scan the classpath), but also removes a lot of "magic" from the code. We are only using plain Scala, and constructor parameters. It is possible to navigate to the place where the instance is created. The process of creating the object graph is clear. The application is also simple to use, and can be easily packaged e.g. as a fat-jar. No containers to start, no frameworks to fight against.
+No run-time reflection is needed, which has a slight startup-time benefit (no need to scan the classpath), but also removes a lot of "magic" from the code. There are no annotations to scan for. We are only using plain Scala, and constructor parameters. It is possible to navigate to the place where the instance is created. The process of creating the object graph is clear. The application is also simple to use, and can be easily packaged e.g. as a fat-jar. No containers to start, no frameworks to fight against.
 
 If creating an instance of some object is complex, or choosing an implementation depends on some configuration, thanks to the flexibility of manual DI, we can easily run arbitrary code which should compute the dependency to use.
 
