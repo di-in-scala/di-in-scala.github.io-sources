@@ -9,6 +9,7 @@
 
   <h1>{{ section[1] }}</h1>
   <span style="font-size: 75%">[&#8607; Back to top](#top)</span> 
+  <span style="font-size: 75%">[&#8609; Comments](#comments)</span> 
   {% assign path = '' %}
   {% capture path %}{{ section[0] }}.md{% endcapture %}
   {% include {{ path }} %}  

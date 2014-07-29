@@ -26,3 +26,4 @@ sections:
   interceptors:   'Interceptors'
   advscopes:      'Advanced scoping'
   dynamic:        'Accessing the object graph dynamically'
+  comments:       'Comments'
