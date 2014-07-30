@@ -43,3 +43,58 @@ A compile-time error occurs if:
 
 * there are multiple values of a given type in the enclosing type, or in parent types
 * there is no value of a given type
+
+## Using implicit parameters
+
+A similar effect to the one described above can be achieved by using implicit parameters and implicit values. If all constructor parameters are marked as `implicit`, and all instances are marked as `implicit` when the object graph is wired, the Scala compiler will create the proper constructor calls.
+
+The class definitions then become:
+
+````scala
+class PointSwitcher()
+class TrainCarCoupler()
+class TrainShunter(
+   implicit
+   pointSwitcher: PointSwitcher, 
+   trainCarCoupler: TrainCarCoupler)
+
+class CraneController()
+class TrainLoader(
+   implicit
+   craneController: CraneController, 
+   pointSwitcher: PointSwitcher)
+
+class TrainDispatch()
+
+class TrainStation(
+   implicit
+   trainShunter: TrainShunter, 
+   trainLoader: TrainLoader, 
+   trainDispatch: TrainDispatch) {
+
+   def prepareAndDispatchNextTrain() { ... }
+}
+````
+
+And the wiring:
+
+````scala
+object TrainStation extends App {
+   implicit lazy val pointSwitcher = new PointSwitcher
+   implicit lazy val trainCarCoupler = new TrainCarCoupler
+   implicit lazy val trainShunter = new TrainShunter
+
+   implicit lazy val craneController = new CraneController
+   implicit lazy val trainLoader = new TrainLoader
+
+   implicit lazy val trainDispatch = new TrainDispatch
+
+   implicit lazy val trainStation = new TrainStation
+
+   trainStation.prepareAndDispatchNextTrain()
+}
+````
+
+However, using implicits like that has two drawbacks. First of all, it is intrusive, as you have to mark the constructor parameter list of each class to be wired as `implicit`. That may not be desireable, and can cause the person reading the code to wonder why the parameters are implicit. 
+
+Secondly, implicits are used in many other places in Scala for other, rather different purposes. Adding a large number of implicits as described here may lead to confusion. Still, such a style may be a perfect fit in some use-cases, of course!
