@@ -44,8 +44,7 @@ A compile-time error occurs if:
 * there are multiple values of a given type in the enclosing type, or in parent types
 * there is no value of a given type
  
-*Note*: at the moment, the `wire` macro only works in the top level scope of a class or object, not from within a method. See https://github.com/adamw/macwire/issues/15
-
+*Note*: at the moment, the `wire` macro does not take into account definitions from within a method's body (only from the enclosing class/object/method parameters, as described above). For details see these issues: [#11](https://github.com/adamw/macwire/issues/11) and [#15](https://github.com/adamw/macwire/issues/15).
 
 ## Using implicit parameters
 
