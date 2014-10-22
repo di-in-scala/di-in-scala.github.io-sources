@@ -25,5 +25,6 @@ sections:
   testing:        'Testing'
   interceptors:   'Interceptors'
   advscopes:      'Advanced scoping'
+  factories:      'Factories'
   dynamic:        'Accessing the object graph dynamically'
   comments:       'Comments'
