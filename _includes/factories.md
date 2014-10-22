@@ -1,7 +1,7 @@
 
 ## Factories as functions
 
-In the simplest form, a factory is simply a function: it is a parametrized way to create an object. You can also think of it is of a partially wired dependency.
+In the simplest form, a factory is a function: a parametrized way to create an object. You can also think of it is of a partially wired dependency.
 
 Let's say the `TrainLoader` additionally requires a `CarLoader` dependency parametrized by `CarType` (the type of the train car to load: coal, refrigerated, chemical etc.). As a convenience, we can create a type alias for the function, but that is entirerly optional. The definition of the `TrainLoader` class now becomes:
 
@@ -35,7 +35,7 @@ Note that it is not yet possible to use `wire[]` inside an anonymous function - 
 
 You can also create factories by defining methods directly in the trait-modules. The method parameters will be also used for wiring when using `wire[]`.
 
-Let's say the `TrainStation` requires an additional name:
+Let's say the `TrainStation` requires a name:
 
 ````scala
 class TrainStation(
@@ -62,4 +62,4 @@ trait StationModule {
 }
 ````
 
-When retrieving an instance of a train station for the combined modules, we now have to provide a name. The method parameters, together with other dependencies looked up in the usual way, will be used to create a `TrainStation` instance.
+When retrieving an instance of a train station from the combined modules, we now have to provide a name. The method parameters, together with other dependencies looked up in the usual way, will be used to create a `TrainStation` instance.
