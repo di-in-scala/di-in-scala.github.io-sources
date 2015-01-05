@@ -12,8 +12,10 @@ For example, in a Java servlet-based web project, to make the train dispatch ses
 ````scala
 package station {
    trait StationModule extends ShuntingModule with LoadingModule {
-      lazy val trainDispatch = session(wire[TrainDispatch])
-      lazy val trainStation = wire[TrainStation]
+      lazy val trainDispatch: TrainDispatch = 
+            session(wire[TrainDispatch])
+      lazy val trainStation: TrainStation = 
+            wire[TrainStation]
 
       def session: Scope
    }
