@@ -8,8 +8,8 @@ To implement the first part, we will define an abstract interceptor, and apply i
 ````scala
 package shunting {
    trait ShuntingModule {
-      lazy val pointSwitcher = logEvents(wire[PointSwitcher])
-      lazy val trainCarCoupler = logEvents(wire[TrainCarCoupler])
+      lazy val pointSwitcher: PointSwitcher = logEvents(wire[PointSwitcher])
+      lazy val trainCarCoupler: TrainCarCoupler = logEvents(wire[TrainCarCoupler])
       lazy val trainShunter = wire[TrainShunter] 
 
       def logEvents: Interceptor

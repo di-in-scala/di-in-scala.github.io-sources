@@ -47,11 +47,12 @@ package shunting {
    class TeleportingTrainShunter() extends TrainShunter
 
    trait ShuntingModule {
+      lazy val pointSwitcher = wire[PointSwitcher]
+
       def trainShunter: TrainShunter
    }
 
    trait TraditionalShuntingModule extends ShuntingModule {
-      lazy val pointSwitcher = wire[PointSwitcher]
       lazy val trainCarCoupler = wire[TrainCarCoupler]
       lazy val trainShunter = wire[TraditionalTrainShunter]
    }
