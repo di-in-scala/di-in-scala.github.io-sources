@@ -27,4 +27,5 @@ sections:
   advscopes:      'Advanced scoping'
   factories:      'Factories'
   dynamic:        'Accessing the object graph dynamically'
+  multipleinst:   'Multiple instances'
   comments:       'Comments'

@@ -21,15 +21,14 @@ trait LoadingModule {
    lazy val craneController = wire[CraneController]
    lazy val trainLoader = wire[TrainLoader] 
 
-   lazy val carLoaderFactory = (ct: CarType) => new CarLoader(ct)
-   // or any other logic to instantiate a CarLoader
+   lazy val carLoaderFactory = (ct: CarType) => wire[CarLoader]
+   // the above wire will expand to: new CarLoader(ct). Can also 
+   // be any other logic to instantiate a CarLoader
 
    // dependency of the module
    def pointSwitcher: PointSwitcher
 }
 ````
-
-Note that it is not yet possible to use `wire[]` inside an anonymous function - the function parameters will not be used for wiring. This will be added in future releases, see [#25](https://github.com/adamw/macwire/issues/25).
 
 ## Factories in trait-modules
 

@@ -33,18 +33,20 @@ To access `wire`, you can either import the `com.softwaremill.macwire.MacwireMac
 
 Given a class, the `wire` macro first inspects the primary constructor, to determine the dependencies needed. For each dependency it then looks for a value which is a subtype of the parameter’s type, in the enclosing method/class/object:
 
-* first it tries to find a value declared in the enclosing method; if multiple values are found, a by-name match is attempted
+* first it tries to find a value declared in the enclosing methods and anonymous functions
 * then it tries to find a unique value declared in the enclosing type
 * finally it tries to find a unique value in parent types (traits/classes)
+* if the parameter is marked as implicit, additionally the usual implicit lookup mechanism is used
 
 Here value can be either a `val`, `lazy val` or a no-parameter `def`, as long as the return type matches.
 
 A compile-time error occurs if:
 
-* there are multiple values of a given type in the enclosing type, or in parent types
+* there are multiple values of a given type in the enclosing methods/anonymous functions, enclosing type, or in parent types
+* parameter is marked as implicit and both implicit lookup and searching in enclosing scopes finds a value
 * there is no value of a given type
  
-*Note*: at the moment, the `wire` macro does not take into account definitions from within a method's body (only from the enclosing class/object/method parameters, as described above). For details see these issues: [#11](https://github.com/adamw/macwire/issues/11) and [#15](https://github.com/adamw/macwire/issues/15).
+*Note*: at the moment, the `wire` macro does not take into account definitions from within a method's body (only from the enclosing class/object/method/function parameters, as described above). For details see these issues: [#11](https://github.com/adamw/macwire/issues/11) and [#15](https://github.com/adamw/macwire/issues/15).
 
 ## Using implicit parameters
 
@@ -100,3 +102,7 @@ object TrainStation extends App {
 However, using implicits like that has two drawbacks. First of all, it is intrusive, as you have to mark the constructor parameter list of each class to be wired as `implicit`. That may not be desireable, and can cause the person reading the code to wonder why the parameters are implicit. 
 
 Secondly, implicits are used in many other places in Scala for other, rather different purposes. Adding a large number of implicits as described here may lead to confusion. Still, such a style may be a perfect fit in some use-cases, of course!
+
+## Wiring using implicit values
+
+It is also possible to take into account implict values when wiring using `wireImplicit`, even when looking for instances of non-implicit parameters. In this variant, for each constructor parameter, an implicit lookup will be done in addition to looking in the current scope. In case multiple values are found, a compile-time error will be reported.
