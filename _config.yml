@@ -28,4 +28,5 @@ sections:
   factories:      'Factories'
   dynamic:        'Accessing the object graph dynamically'
   multipleinst:   'Multiple instances'
+  akka:           'DI in Akka'
   comments:       'Comments'
