@@ -143,3 +143,58 @@ object TrainStation extends App {
 A very similar effect would be achieved by using a self-type. 
 
 This approach can also be useful to create bigger modules out of multiple smaller ones, without the need to re-express the dependencies of the smaller modules. Simply define a bigger-module-trait extending a number of smaller-module-traits.
+
+## Composing modules
+
+Modules can be also combined using composition, that is you can nest modules as members and use dependencies defined in the nested modules to wire objects.
+
+For example, we can add a plugin to our train management application which will allow gathering statistics:
+
+````scala
+package stats {
+   class LoadingStats(trainLoader: TrainLoader)
+   class ShuntingStats(trainShunter: TrainShunter)
+
+   class StatsModule(
+      shuntingModule: ShuntingModule,
+      loadingModule: LoadingModule) {
+
+      import shuntingModule._
+      import loadingModule._
+
+      lazy val loadingStats = wire[LoadingStats]
+      lazy val shuntingStats = wire[ShuntingStats]    
+   }   
+}
+````
+
+Note the `import` statements, which bring any dependencies defined in the nested modules into scope.
+
+This can be further shortened by using an experimental `@Module` annotation for module `trait`s/`class`es; members of nested modules with that annotaiton will be taken into account automatically during wiring:
+
+````scala
+package loading {
+   @Module
+   trait LoadingModule { ... }
+}
+
+package shunting {
+   @Module
+   trait ShuntingModule { ... }
+}
+
+package stats {
+   class LoadingStats(trainLoader: TrainLoader)
+   class ShuntingStats(trainShunter: TrainShunter)
+
+   class StatsModule(
+      shuntingModule: ShuntingModule,
+      loadingModule: LoadingModule) {
+
+      lazy val loadingStats = wire[LoadingStats]
+      lazy val shuntingStats = wire[ShuntingStats]    
+   }   
+}
+````
+
+In this scenario no imports are necessary.

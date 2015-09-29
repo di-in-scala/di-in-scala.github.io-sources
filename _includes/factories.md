@@ -62,3 +62,35 @@ trait StationModule {
 ````
 
 When retrieving an instance of a train station from the combined modules, we now have to provide a name. The method parameters, together with other dependencies looked up in the usual way, will be used to create a `TrainStation` instance.
+
+## Wiring using factory methods
+
+Using MacWire, it is also possible to wire objects with a factory method instead of a constructor. For example, suppose that instances of `TrainLoader` needs to be created using a special method which passes some numeric parameters to the crane; in such situations, we can use `wireWith`:
+
+````scala
+package loading {
+   class TrainLoader(
+      craneController: CraneController, 
+      pointSwitcher: PointSwitcher,
+      xAxisCoefficient: Double,
+      yAxisCoefficient: Double)
+
+   object TrainLoader {
+      def createDefault(
+         craneController: CraneController, 
+         pointSwitcher: PointSwitcher) =
+         new TrainLoader(craneController, pointSwitcher,
+            10.0, 12.5) 
+   }  
+
+   trait LoadingModule {
+      lazy val craneController = wire[CraneController]
+
+      lazy val trainLoader = wireWith(TrainLoader.createDefault) 
+
+      // dependency of the module
+      def pointSwitcher: PointSwitcher
+   } 
+}
+}
+````
