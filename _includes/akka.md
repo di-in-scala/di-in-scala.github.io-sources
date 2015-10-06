@@ -103,7 +103,7 @@ trait StationModule {
 // usage; statically checked ActorRef types!
 val loadListener = actorSystem
       .actorOf(Props[LoadListenerActor])
-      .taggedWith[LoadListner]
+      .taggedWith[LoadListener]
 
 val reactiveTrainDispatch = modules
       .createReactiveTrainDispatch(loadListener)
