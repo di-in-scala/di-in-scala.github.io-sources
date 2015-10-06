@@ -1,7 +1,7 @@
 
 ## Factories as functions
 
-In the simplest form, a factory is a function: a parametrized way to create an object. You can also think of it is of a partially wired dependency.
+In the simplest form, a factory is a function: a parametrized way to create an object. You can also think of it as a partially wired dependency.
 
 Let's say the `TrainLoader` additionally requires a `CarLoader` dependency parametrized by `CarType` (the type of the train car to load: coal, refrigerated, chemical etc.). As a convenience, we can create a type alias for the function, but that is entirerly optional. The definition of the `TrainLoader` class now becomes:
 
