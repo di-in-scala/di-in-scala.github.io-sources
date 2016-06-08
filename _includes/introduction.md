@@ -32,7 +32,7 @@ Using frameworks:
 
 Using pure Scala:
 
-* [Cake pattern](http://jonasboner.com/2008/10/06/real-world-scala-dependency-injection-di/)
+* [Cake pattern](http://jonasboner.com/real-world-scala-dependency-injection-di/)
 * [Reader monad](http://blog.originate.com/blog/2013/10/21/reader-monad-for-dependency-injection/)
 
 ## Running example
