@@ -1,8 +1,6 @@
 
 [Akka](http://akka.io) is a very popular toolkit for bulding concurrent, "reactive" applications. The main building block used in Akka-based systems are actors. A common question when using Akka is "how do I do dependency injection with actors?"; typical use-case is passing a datasource to an actor.
 
-There's a bit dated article on Akka's blog [focusing primarily on Spring](http://letitcrash.com/post/55958814293/akka-dependency-injection). What if we are using Manual DI or MacWire?
-
 ## Injecting services
 
 The current best-practice for defining actor instantion code, when the actor instance needs some external dependencies, is to provide a method in the companion object returning the `Props` describing how to create a new actor instance (remember, actor instances can be created multiple times, even if it's a "singleton" actor!):
