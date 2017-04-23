@@ -17,7 +17,8 @@ lazy val liquidTrainLoader = new TrainLoader(...)
 lazy val trainStation = new TrainStation(
    trainShunter,
    regularTrainLoader,
-   liquidTrainLoader)
+   liquidTrainLoader,
+   trainDispatch)
 ````
 
 This is a perfectly good solution if we are using manual dependency injection - everything works as expected. One downside is that it's not entirely type-safe: if we mix-up the regular and liquid train loaders when passing them as arguments to the `TrainStation` constructor, everything will still compile just fine.
