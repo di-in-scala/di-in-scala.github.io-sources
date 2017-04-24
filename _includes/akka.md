@@ -1,5 +1,5 @@
 
-[Akka](http://akka.io) is a very popular toolkit for bulding concurrent, "reactive" applications. The main building block used in Akka-based systems are actors. A common question when using Akka is "how do I do dependency injection with actors?"; typical use-case is passing a datasource to an actor.
+[Akka](http://akka.io) is a very popular toolkit for building concurrent, "reactive" applications. The main building block used in Akka-based systems are actors. A common question when using Akka is "how do I do dependency injection with actors?"; typical use-case is passing a datasource to an actor.
 
 ## Injecting services
 
