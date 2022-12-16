@@ -1,7 +1,7 @@
 
 Manual DI isn’t of course a silver bullet. Manually writing new instance creation code for each class, using the correct parameters may be tedious.
 
-That is where [MacWire](https://github.com/adamw/macwire) and the `wire` method can help. `wire` is a [Scala Macro](http://scalamacros.org/), which generates the new instance creation code. 
+That is where [MacWire](https://github.com/adamw/macwire) and the `wire` method can help. `wire` is a [Scala Macro](https://docs.scala-lang.org/scala3/guides/macros/macros.html), which generates the new instance creation code. 
 
 After using MacWire, the code becomes simpler:
 
